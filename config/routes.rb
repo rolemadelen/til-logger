@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
-  resources :home
-  root to: "home#index"
-  get '/home' => "home#index"
-  # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
+  get "post/index" => "post#index"
+  get "post/new" => "post#new"
+  get "post/:id" => "post#show"
+  post "post/create" => "post#create"
+
+  root to: "post#index"
 end
