@@ -14,3 +14,4 @@
  *= require_self
  */
 <%= stylesheet_link_tag params[:controller], 'data-turbolinks-track': 'reload' %>
+
