@@ -1,23 +1,23 @@
 <div class="container mx-auto px-64">
   <div class="text-2xl flex justify-center mt-10">TIL Archives</div>
 
-  <button class="bg-sky-600 hover:bg-sky-700 text-white">
-    <%= link_to("New Issue", "/post/new") %>
-  </button>
+  <div class="block flex justify-end">
+    <button class="px-2.5 py-1 text-xs text-gray-600 font-semibold rounded-full border border-gray-200 hover:text-white hover:bg-gray-600 hover:border-transparent">
+      <%= link_to("Back to Main", "/") %>
+    </button>
+  </div>
   <ul role="list" class="p-6">
-    <% @posts.each do |post| %>
-      <% if post.archive %>
-        <li class="pb-2">
-          <div>
-            <p class="title text-lg underline decoration-sky-400 hover:decoration-blue-600">
-            <%= link_to(markdown(post.title), "/post/#{post.id}") %>
-            </p>
-            <span class="date text-sm text-gray-400 pl-1">
-              <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
-            </span>
-          </div>
-        </li>
-      <% end %>
+    <% @closed.each do |post| %>
+      <li class="pb-2 hover:bg-gray-50">
+        <div>
+          <p class="title text-lg underline decoration-sky-400 hover:decoration-blue-600">
+          <%= link_to(markdown(post.title), "/post/#{post.id}") %>
+          </p>
+          <span class="date text-sm text-gray-400 pl-1">
+            <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
+          </span>
+        </div>
+      </li>
     <% end %>
   </ul>
 </div>

@@ -1,15 +1,17 @@
 class PostController < ApplicationController
   def index 
-    @posts = Post.all.order(id: :desc)
+    @open = Post.all.order(id: :desc).select{|post| post.archive == false}
+    @closed = Post.all.order(id: :desc).select{|post| post.archive == true}
   end 
 
   def indexArchive
-    @posts = Post.all.order(id: :desc)
+    @open = Post.all.order(id: :desc).select{|post| post.archive == false}
+    @closed = Post.all.order(id: :desc).select{|post| post.archive == true}
   end
 
   def archive 
     @post = Post.find_by(id: params[:id])
-    @post.archive = !(@post.archive)
+    @post.archive = (@post.archive) ? false : true
     @post.save 
     redirect_to("/")
   end
@@ -19,11 +21,11 @@ class PostController < ApplicationController
   end
 
   def new 
-    @post = Post.new(title: params[:title], content: params[:content])
+    @post = Post.new(title: params[:title], content: params[:content], archive: false)
   end
 
   def create 
-    @post = Post.new(title: params[:title], content: params[:content])
+    @post = Post.new(title: params[:title], content: params[:content], archive: false)
     if @post.save
       redirect_to("/post/#{@post.id}")
     end
