@@ -4,6 +4,7 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+$color-azure: #0071C5; 
 
 div.highlight {
   overflow: scroll;
@@ -14,4 +15,24 @@ hr {
   background-image: linear-gradient(to right, rgba(255, 255, 255, 1), rgba(0, 0, 0, 0.3), rgba(255, 255, 255, 1)) !important;
   border: none;
   margin: 1em auto !important;
+}
+
+table, tbody, thead, th, tr, td {
+  border: 1px solid gray;
+}
+
+table {
+  margin: 0.5em 0;
+}
+th,td {
+  padding: 0.2em 1em;
+}
+
+ul {
+  li {
+    a:hover {
+      color: $color-azure;
+      text-decoration: underline;
+    }
+  }
 }
