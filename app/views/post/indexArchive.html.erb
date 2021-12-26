@@ -1,12 +1,12 @@
 <div class="container mx-auto px-64">
-  <div class="text-2xl flex justify-center mt-10">Today I Learned</div>
+  <div class="text-2xl flex justify-center mt-10">TIL Archives</div>
 
-  <button class="px-2.5 py-1 text-xs text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent float-right">
+  <button class="bg-sky-600 hover:bg-sky-700 text-white">
     <%= link_to("New Issue", "/post/new") %>
   </button>
   <ul role="list" class="p-6">
     <% @posts.each do |post| %>
-      <% if !post.archive %>
+      <% if post.archive %>
         <li class="pb-2">
           <div>
             <p class="title text-lg underline decoration-sky-400 hover:decoration-blue-600">
