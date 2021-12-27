@@ -353,6 +353,7 @@ module.exports = {
     },
     fontFamily: {
       sans: [
+        'monospace',
         'Inter var',
         'ui-sans-serif',
         'system-ui',

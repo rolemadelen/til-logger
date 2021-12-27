@@ -36,3 +36,14 @@ ul {
     }
   }
 }
+
+div.nav {
+  letter-spacing: 0.1em;
+  a {
+    font-size: 0.7rem;
+  }
+  a:hover {
+    color: $color-azure;
+    text-decoration: underline;
+  }
+}
