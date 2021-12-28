@@ -1,7 +1,12 @@
-<div class="container mx-auto px-80">
+<div class="eu:container sm:container sm:mx-auto">
   <div class="mt-10 flex justify-between items-center">
-    <div class="border px-2 py-1 nav flex justify-start text-xs text-gray-500">
-      <%= link_to("./home", "/") %>
+    <div class="flex">
+      <div class="nav">
+        <%= link_to("home", "/", class: 'nav-link active far fa-folder-open') %>
+      </div>
+      <div class="nav">
+        <%= link_to("archive", "/archive", class: 'nav-link fa fa-archive') %>
+      </div>
     </div>
     <div class="flex mw-auto justify-end">
       <div class="flex text-xs items-center text-gray-400 pr-5">
@@ -20,8 +25,8 @@
     <% @open.each do |post| %>
       <li class="pb-2 hover:bg-gray-50">
         <div class="leading-4">
-          <p class="title text-lg underline decoration-sky-400 hover:decoration-blue-600">
-          <%= link_to(markdown("$ cd '#{post.title}'"), "/post/#{post.id}") %>
+          <p class="title text-sm">
+          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file") %>
           </p>
           <span class="date text-xs text-gray-300 pl-2">
             <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>

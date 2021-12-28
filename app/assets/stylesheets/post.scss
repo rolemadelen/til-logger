@@ -4,7 +4,11 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
-$color-azure: #0071C5; 
+$color-azure: rgba(0, 113, 197, 1.0);
+
+.eu\:container {
+  padding: 0 20vw;
+}
 
 div.highlight {
   overflow: scroll;
@@ -37,13 +41,43 @@ ul {
   }
 }
 
-div.nav {
+.nav {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+
+  padding: 0.5rem 0.25rem 0.5rem 0.5rem;
+  margin-right: 0.5rem;
+
+  border-width: 1px;
   letter-spacing: 0.1em;
-  a {
-    font-size: 0.7rem;
+
+  font-size: 0.7rem;
+
+  .nav-link {
+    margin-right: 0.25rem;
+    font-weight: normal;
+
+    &::before {
+      font-weight: 900;
+      margin-right: 3px;
+    }
+    &.active {
+      color: $color-azure;
+      font-weight: bold;
+    }
   }
+
   a:hover {
     color: $color-azure;
     text-decoration: underline;
+  }
+}
+
+a {
+  &.fa-file, &.fa-file-archive, &.fa-archive {
+    &::before {
+      margin-right: 5px;
+    }
   }
 }

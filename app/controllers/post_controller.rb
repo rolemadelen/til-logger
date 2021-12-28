@@ -21,11 +21,11 @@ class PostController < ApplicationController
   end
 
   def new 
-    @post = Post.new(title: params[:title], content: params[:content], archive: false)
+    @post = Post.new(title: params[:title], content: params[:content], tags: params[:tags], archive: false)
   end
 
   def create 
-    @post = Post.new(title: params[:title], content: params[:content], archive: false)
+    @post = Post.new(title: params[:title], content: params[:content], tags: params[:tags], archive: false)
     if @post.save
       redirect_to("/post/#{@post.id}")
     end
@@ -38,6 +38,7 @@ class PostController < ApplicationController
   def update 
     @post = Post.find_by(id: params[:id])
     @post.title = params[:title]
+    @post.tags = params[:tags]
     @post.content = params[:content]
     if @post.save 
       redirect_to("/post/#{@post.id}")
