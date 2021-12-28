@@ -19,6 +19,11 @@ module.exports = {
       xl: '1280px',
       '2xl': '1536px',
     },
+    extend: {
+      padding: {
+        '20vw': '20vw',
+      }
+    },
     colors: ({ colors }) => ({
       inherit: colors.inherit,
       current: colors.current,
@@ -47,6 +52,7 @@ module.exports = {
       fuchsia: colors.fuchsia,
       pink: colors.pink,
       rose: colors.rose,
+      azure: '#0071c5'
     }),
     columns: {
       auto: 'auto',

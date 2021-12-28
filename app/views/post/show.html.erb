@@ -1,10 +1,15 @@
-<div class="container mx-auto px-80">
+<div class="container mx-auto px-[20vw]">
   <div class="mt-10"></div>
 
   <div class="flex justify-between items-center">
-    <div class="border px-2 py-1 nav flex justify-start text-gray-500">
-      <%= link_to("./home", "/") %>
-      <%= link_to("/#{@post.title}", "/post/#{@post.id}") %>
+    <div class="nav">
+      <% if @post.archive %>
+        <%= link_to("archive/", "/archive", class: 'nav-link fa fa-archive') %>
+        <%= link_to("#{@post.title}/", "/post/#{@post.id}", class: "nav-link active far fa-file-archive") %>
+      <%else %>
+        <%= link_to("home/", "/", class: 'nav-link far fa-folder-open') %>
+        <%= link_to("#{@post.title}/", "/post/#{@post.id}", class: "nav-link active far fa-file") %>
+      <%end %>
     </div>
     <div class="flex justify-end">
       <% if @post.archive %>
@@ -24,8 +29,12 @@
   </div>
 
   <div class="py-6 my-2">
-    <span class="text-sm text-gray-500 flex justify-end">
-      <%= @post.created_at %>
+    <span class="text-xs text-gray-500 flex justify-end mb-5">
+      <%if @post.created_at != @post.updated_at %>
+        <%= "last updated: #{@post.updated_at.strftime("%I:%M %p, %Y-%0m-%0d")}" %>
+      <% else %>
+        <%= @post.created_at %>
+      <% end %>
     </span>
     <%= markdown(@post.content) %>
   </div>
