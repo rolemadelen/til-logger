@@ -18,6 +18,11 @@ class PostController < ApplicationController
 
   def show 
     @post = Post.find_by(id: params[:id])
+    if @post.tags
+      @tags = @post.tags.split(' ')
+    else 
+      @tags = []
+    end
   end
 
   def new 
