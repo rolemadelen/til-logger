@@ -6,6 +6,13 @@
 @import "font-awesome";
 $color-azure: rgba(0, 113, 197, 1.0);
 
+$ruby: #d73a4a;
+$rails: #d73a4a;
+$git: #F0D251;
+$javascript: #F8B73B;
+$documentation: #0075ca;
+$algorithm: #E1A4D7;
+
 .eu\:container {
   padding: 0 20vw;
 }
@@ -81,3 +88,13 @@ a {
     }
   }
 }
+
+.ruby { background-color: $ruby; color: white; }
+.rails { background-color: $rails; color: white; }
+.git { background-color: $git; color: black; }
+.js { background-color: $javascript; }
+.javascript { background-color: $javascript; }
+.doc { background-color: $documentation; }
+.documentation { background-color: $documentation; }
+.algorithm { background-color: $algorithm; }
+

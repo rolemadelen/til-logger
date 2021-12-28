@@ -25,6 +25,7 @@
       <div class="form">
         <div class="form-body">
           <input type="text" name="title" class="placeholder:italic block bg-white w-full border" value="<%= "#{@post.title}" %>" placeholder="Title">
+          <input type="text" name="tags" class="placeholder:italic block bg-white w-full border" value="<%= "#{@post.tags}" %>" placeholder="Tags (e.g. ruby, rails, ...)">
           <textarea name="content" class="h-80 placeholder:italic block bg-white w-full border" placeholder="Leave a note here"> <%= @post.content %> </textarea> 
           <input type="submit" value="Update" class="px-2.5 py-1 text-xs text-gray-600 font-semibold rounded-full border border-gray-200 hover:text-white hover:bg-gray-600 hover:border-transparent">
         </div>

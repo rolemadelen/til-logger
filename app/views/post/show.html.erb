@@ -29,13 +29,21 @@
   </div>
 
   <div class="py-6 my-2">
-    <span class="text-xs text-gray-500 flex justify-end mb-5">
+    <div class="tags mb-2">
+      <% @tags.each do |tag| %>
+        <span class="<%=tag%> px-1.5 py-1 text-xs hover:border-transparent"><%=tag%></span>
+      <% end %>
+    </div>
+    <span class="text-xs text-gray-500 flex justify-start mb-4">
       <%if @post.created_at != @post.updated_at %>
         <%= "last updated: #{@post.updated_at.strftime("%I:%M %p, %Y-%0m-%0d")}" %>
       <% else %>
         <%= @post.created_at %>
       <% end %>
     </span>
-    <%= markdown(@post.content) %>
+
+    <div>
+      <%= markdown(@post.content) %>
+    </div>
   </div>
 </div>

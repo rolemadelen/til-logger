@@ -31,6 +31,14 @@
           <span class="date text-xs text-gray-300 pl-2">
             <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
           </span>
+          <div class="tags">
+            <% if post.tags %>
+              <% tags = post.tags.split(',') %>
+              <% tags.each do |tag| %>
+                <span class="<%=tag%> px-1 py-0.5 text-xs hover:border-transparent"><%=tag%></span>
+              <% end %>
+            <% end %>
+          </div>
         </div>
       </li>
     <% end %>
