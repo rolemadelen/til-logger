@@ -36,9 +36,9 @@
     </div>
     <span class="text-xs text-gray-500 flex justify-start mb-4 border-b-2">
       <%if @post.created_at != @post.updated_at %>
-        <%= "last updated: #{@post.updated_at.strftime("%I:%M %p, %Y-%0m-%0d")}" %>
+        <%= "last updated: #{@post.updated_at.in_time_zone("Asia/Tokyo").strftime("%I:%M %p, %Y-%0m-%0d")}" %>
       <% else %>
-        <%= @post.created_at %>
+        <%= @post.created_at.in_time_zone("Asia/Tokyo").strftime("%I:%m %p, %Y-%0m-%0d %Z") %>
       <% end %>
     </span>
 

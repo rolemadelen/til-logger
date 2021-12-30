@@ -4,9 +4,10 @@
       <%= "Edit: #{@post.title}" %>
     </span>
     <span class="text-sm text-gray-500">
-      <%= @post.updated_at %>
+      <%= @post.updated_at.in_time_zone("Asia/Tokyo").strftime("%I:%m %p, %Y-%0m-%0d %Z") %>
     </span>
   </div>
+
   <div class="flex justify-between items-center">
     <div class="nav">
       <% if @post.archive %>
@@ -22,14 +23,7 @@
 
   <div class="py-6 my-2">
     <%= form_tag("/post/#{@post.id}/update") do %>
-      <div class="form">
-        <div class="form-body">
-          <input type="text" name="title" class="placeholder:italic block bg-white w-full border" value="<%= "#{@post.title}" %>" placeholder="Title">
-          <input type="text" name="tags" class="placeholder:italic block bg-white w-full border" value="<%= "#{@post.tags}" %>" placeholder="Tags (e.g. ruby, rails, ...)">
-          <textarea name="content" class="h-96 placeholder:italic block bg-white w-full border" placeholder="Leave a note here"> <%= @post.content %> </textarea> 
-          <input type="submit" value="Update" class="px-2.5 py-1 mt-2 text-xs text-gray-600 font-semibold rounded-full border border-gray-200 hover:text-white hover:bg-gray-600 hover:border-transparent hover:cursor-pointer">
-        </div>
-      </div>
+      <%= render partial: 'post/issueForm', :locals => {:title => @post.title, :tags => @post.tags, :content => @post.content}%>
     <% end %>
   </div>
 </div>

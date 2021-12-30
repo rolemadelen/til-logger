@@ -5,7 +5,7 @@
 # Todo
 - [x] Tagging (labeling) feature
   + [x] filter by tag
-- [ ] Search 
-  + [ ] by title
-  + [ ] by contents
-  + [ ] by tags 
+- [x] Search (utilized AJAX and partial rendering)
+  + [x] by title
+  + [ ] ~by contents~ - not gonna do it. 
+  + [ ] ~by tags~ - not gonna do it since filtering is there.
