@@ -5,7 +5,7 @@
     </span>
     <span class="text-sm text-gray-500">
       <% require 'Date'%>
-      <%= Date.today.strftime("%Y-%0m-%0d %I:%M %p") %>
+      <%= Date.today.in_time_zone("Asia/Tokyo").strftime("%Y-%0m-%0d %I:%M %p %Z") %>
     </span>
   </div>
 
@@ -18,14 +18,7 @@
 
   <div class="py-6 my-2">
     <%= form_tag("/post/create") do %>
-      <div class="form">
-        <div class="form-body">
-          <input type="text" name="title" class="placeholder:italic block bg-white w-full border" placeholder="Title">
-          <input type="text" name="tags" class="placeholder:italic block bg-white w-full border" placeholder="Tags (e.g. ruby, rails, c++, ...)">
-          <textarea name="content" class="h-80 placeholder:italic block bg-white w-full border" placeholder="Leave a note here"></textarea> 
-          <input type="submit" value="Create" class="px-2.5 py-1 text-xs text-gray-600 font-semibold rounded-full border border-gray-200 hover:text-white hover:bg-gray-600 hover:border-transparent hover:cursor-pointer">
-        </div>
-      </div>
+      <%= render partial: "post/issueForm", :locals => {:title => "", :tags => "", :content => ""} %>
     <% end %>
   </div>
 </div>
