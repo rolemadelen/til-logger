@@ -4,6 +4,7 @@
 
 # Todo
 - [x] Tagging (labeling) feature
+  + [ ] filter by tag
 - [ ] Search 
   + [ ] by title
   + [ ] by contents
