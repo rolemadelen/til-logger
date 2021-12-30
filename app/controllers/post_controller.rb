@@ -16,6 +16,13 @@ class PostController < ApplicationController
     redirect_to("/")
   end
 
+  def tag 
+    # should i separate open and closed issues? I should... 
+    # why would you want to see closed issues...hmm
+    # for now lets show all 
+    @posts = Post.all.order(id: :desc).select{ |post| (post.tags and post.tags.include? params[:tag])}
+  end 
+
   def show 
     @post = Post.find_by(id: params[:id])
     if @post.tags

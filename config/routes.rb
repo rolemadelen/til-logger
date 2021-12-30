@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
   root to: "post#index"
+  get "/index" => "post#index"
   get "/archive" => "post#indexArchive"
+  get "/tag/:tag" => "post#tag"
   get "post/:id/archive" => "post#archive"
 
   post "post/:id/update" => "post#update"

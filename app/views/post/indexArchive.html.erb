@@ -17,7 +17,7 @@
     </div>
   </div>
 
-  <ul role="list" class="py-5 my-2">
+  <ul role="list" class="mainlist py-5 my-2">
     <% @closed.each do |post| %>
       <li class="pb-2 hover:bg-gray-50">
         <div class="leading-4 flex">
@@ -28,11 +28,12 @@
             <% if post.tags %>
               <% tags = post.tags.split(' ') %>
               <% tags.each do |tag| %>
-                <span class="tag-default <%=tag%> px-2 py-0.5 text-xs rounded-full hover:border-transparent"><%=tag%></span>
+                <span class="<%=tag%> tag-default px-2 py-0.5 mr-1 text-xs rounded-full hover:border-transparent">
+                  <%= link_to(tag, "/tag/#{tag}") %>
+                </span>
               <% end %>
             <% end %>
           </div>
-
         </div>
         <span class="date text-xs text-gray-300 pl-2">
           <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
