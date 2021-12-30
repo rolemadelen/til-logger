@@ -10,8 +10,7 @@
     </div>
     <div class="flex mw-auto justify-end">
       <div class="flex text-xs items-center text-gray-400 pr-5">
-        <div class="pr-3"> <%= @open.count %> open </div>
-        <div class="pr-3"> <%= @closed.count %> archived </div>
+        <div class="pr-3"> <%= @posts.count %> issue(s) found </div>
       </div>
 
       <div class="block flex justify-end">
@@ -21,21 +20,22 @@
       </div>
     </div>
   </div>
-
-  <ul role="list" class="mainlist py-5 my-2">
-    <% @open.each do |post| %>
+  <ul role="list" class="py-5 my-2">
+    <% @posts.each do |post| %>
       <li class="pb-2 hover:bg-gray-50">
         <div class="leading-4 flex">
           <p class="title text-sm">
-          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file") %>
+          <% if post.archive %>
+            <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file-archive") %>
+          <% else %>
+            <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file") %>
+          <% end %>
           </p>
           <div class="tags ml-3">
             <% if post.tags %>
               <% tags = post.tags.split(' ') %>
               <% tags.each do |tag| %>
-                <span class="<%=tag%> tag-default px-2 py-0.5 mr-1 text-xs rounded-full hover:border-transparent">
-                  <%= link_to(tag, "/tag/#{tag}") %>
-                </span>
+                <span class="<%=tag%> tag-default px-2 py-0.5 text-xs rounded-full hover:border-transparent"><%=link_to(tag, "/tag/#{tag}")%></span>
               <% end %>
             <% end %>
           </div>
@@ -43,6 +43,7 @@
         <span class="date text-xs text-gray-300 pl-2">
           <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
         </span>
+
       </li>
     <% end %>
   </ul>
