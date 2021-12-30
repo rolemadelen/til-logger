@@ -1,0 +1,5 @@
+<% if @posts %>
+  $('ul[role="list"]').html("<%= j (render partial: 'post/index', :locals => {:posts => @posts}) %>")
+<% else %>
+  $('ul[role="list"]').html("<%= j (render partial: 'post/index', :locals => {:posts => @open}) %>")
+<% end %>

@@ -1,0 +1,16 @@
+<div class="flex">
+  <div class="nav">
+    <% if currentPage == 'home' %>
+      <%= link_to("home", "/", class: "nav-link active far fa-folder-open") %>
+    <% else %>
+      <%= link_to("home", "/", class: "nav-link far fa-folder") %>
+    <% end %>
+  </div>
+  <div class="nav">
+    <% if currentPage == 'archive' %>
+      <%= link_to("archive", "/archive", class: 'nav-link active fa fa-archive') %>
+    <% else %>
+      <%= link_to("archive", "/archive", class: 'nav-link fa fa-archive') %>
+    <% end %>
+  </div>
+</div>

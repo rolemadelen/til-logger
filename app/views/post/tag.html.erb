@@ -17,34 +17,15 @@
         <button class="px-2.5 py-1 text-xs text-green-600 font-semibold rounded-full border border-green-200 hover:text-white hover:bg-green-600 hover:border-transparent">
           <%= link_to("New Issue", "/post/new") %>
         </button>
+        <div class="relative search-input ml-3">
+          <i class="search absolute top-[6px] left-[11px] fas fa-search hover:cursor-pointer text-gray-400 hover:text-gray-500"></i>
+          <input class="placeholder:italic placeholder:text-gray-400 block bg-white w-full border border-gray-300 rounded-md py-1 pl-9 pr-3 shadow-sm focus:outline-none focus:border-sky-500 focus:ring-sky-500 focus:ring-1 sm:text-xs" placeholder="Search for anything..." type="text" name="search" value="<%= params[:search] %>"/>
+        </div>
       </div>
     </div>
   </div>
-  <ul role="list" class="py-5 my-2">
-    <% @posts.each do |post| %>
-      <li class="pb-2 hover:bg-gray-50">
-        <div class="leading-4 flex">
-          <p class="title text-sm">
-          <% if post.archive %>
-            <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file-archive") %>
-          <% else %>
-            <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file") %>
-          <% end %>
-          </p>
-          <div class="tags ml-3">
-            <% if post.tags %>
-              <% tags = post.tags.split(' ') %>
-              <% tags.each do |tag| %>
-                <span class="<%=tag%> tag-default px-2 py-0.5 text-xs rounded-full hover:border-transparent"><%=link_to(tag, "/tag/#{tag}")%></span>
-              <% end %>
-            <% end %>
-          </div>
-        </div>
-        <span class="date text-xs text-gray-300 pl-2">
-          <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
-        </span>
 
-      </li>
-    <% end %>
+  <ul role="list" class="py-5 my-2">
+    <%= render partial: 'post/index', :locals => {:posts => @posts} %>
   </ul>
 </div>

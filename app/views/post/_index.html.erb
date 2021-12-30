@@ -1,0 +1,31 @@
+<% if posts.count == 0 %>
+  <div>Nothing found.</div>
+<% else %>
+  <% posts.each do |post| %>
+    <li class="pb-2 hover:bg-gray-50">
+      <div class="leading-4 flex">
+        <p class="title text-sm">
+
+        <% if post.archive %>
+          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file-archive") %>
+        <% else %>
+          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file") %>
+        <% end %>
+        </p>
+        <div class="tags ml-3">
+          <% if post.tags %>
+            <% tags = post.tags.split(' ') %>
+            <% tags.each do |tag| %>
+              <span class="<%=tag%> tag-default px-2 py-0.5 mr-1 text-xs rounded-full hover:border-transparent">
+                <%= link_to(tag, "/index/tag/#{tag}", remote: true)%>
+              </span>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+      <span class="date text-xs text-gray-300 pl-2">
+        <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
+      </span>
+    </li>
+  <% end %>
+<% end %>

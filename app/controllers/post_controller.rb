@@ -2,6 +2,17 @@ class PostController < ApplicationController
   def index 
     @open = Post.all.order(id: :desc).select{|post| post.archive == false}
     @closed = Post.all.order(id: :desc).select{|post| post.archive == true}
+
+    if params[:search]
+      @posts = Post.all.order(id: :desc).select{ |post| post.title.downcase.include? params[:search].downcase}
+    elsif params[:tag]
+      @posts = Post.all.order(id: :desc).select{ |post| (post.tags and post.tags.include? params[:tag])}
+    end
+
+    respond_to do |format|
+      format.js {render layout: false}
+      format.html { render 'index'} # I had to tell rails to use the index by default if it's a html request. 
+    end
   end 
 
   def indexArchive
@@ -17,11 +28,14 @@ class PostController < ApplicationController
   end
 
   def tag 
-    # should i separate open and closed issues? I should... 
-    # why would you want to see closed issues...hmm
-    # for now lets show all 
     @posts = Post.all.order(id: :desc).select{ |post| (post.tags and post.tags.include? params[:tag])}
   end 
+
+  def search 
+    @open = Post.all.order(id: :desc).select{|post| post.archive == false}
+    @closed = Post.all.order(id: :desc).select{|post| post.archive == true}
+    @posts = Post.all.order(id: :desc).select{ |post| post.title.downcase.include? params[:search].downcase}
+  end
 
   def show 
     @post = Post.find_by(id: params[:id])
