@@ -6,12 +6,14 @@
 @import "font-awesome";
 $color-azure: rgba(0, 113, 197, 1.0);
 
-$ruby: #d73a4a;
-$rails: #d73a4a;
+$algorithm: #E1A4D7;
+$c: #a10e49;
+$cpp: #a10e49;
+$documentation: #0075ca;
 $git: #F0D251;
 $javascript: #F8B73B;
-$documentation: #0075ca;
-$algorithm: #E1A4D7;
+$rails: #d73a4a;
+$ruby: #d73a4a;
 
 .eu\:container {
   padding: 0 20vw;
@@ -89,12 +91,39 @@ a {
   }
 }
 
-.ruby { background-color: $ruby; color: white; }
-.rails { background-color: $rails; color: white; }
+.content {
+  font-family: "ui-sans-serif", "system-ui", "-apple-system", 
+  "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue";
+
+  a {
+    color: $color-azure;
+  }
+  a:hover {
+    text-decoration: underline;
+  }
+
+  p {
+    code {
+      background-color: #e5e5e5;
+      padding: 2px;
+    }
+  }
+}
+
+.tags {
+  font-family: "ui-sans-serif", "system-ui", "-apple-system", 
+  "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue";
+}
+
+.tag-default {background-color: #e5e5e5; } 
+.algorithm { background-color: $algorithm; }
+.c {background-color: $c; color: white; }
+.c\+\+ {background-color: $cpp; color: white; }
+.cpp {background-color: $cpp; color: white; }
+.doc { background-color: $documentation; }
+.documentation { background-color: $documentation; }
 .git { background-color: $git; color: black; }
 .js { background-color: $javascript; }
 .javascript { background-color: $javascript; }
-.doc { background-color: $documentation; }
-.documentation { background-color: $documentation; }
-.algorithm { background-color: $algorithm; }
-
+.ruby { background-color: $ruby; color: white; }
+.rails { background-color: $rails; color: white; }

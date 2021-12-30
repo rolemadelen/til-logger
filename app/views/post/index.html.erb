@@ -24,22 +24,23 @@
   <ul role="list" class="py-5 my-2">
     <% @open.each do |post| %>
       <li class="pb-2 hover:bg-gray-50">
-        <div class="leading-4">
+        <div class="leading-4 flex">
           <p class="title text-sm">
           <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file") %>
           </p>
-          <span class="date text-xs text-gray-300 pl-2">
-            <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
-          </span>
-          <div class="tags">
+          <div class="tags ml-3">
             <% if post.tags %>
-              <% tags = post.tags.split(',') %>
+              <% tags = post.tags.split(' ') %>
               <% tags.each do |tag| %>
-                <span class="<%=tag%> px-1 py-0.5 text-xs hover:border-transparent"><%=tag%></span>
+                <span class="<%=tag%> tag-default px-2 py-0.5 text-xs rounded-full hover:border-transparent"><%=tag%></span>
               <% end %>
             <% end %>
           </div>
         </div>
+        <span class="date text-xs text-gray-300 pl-2">
+          <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
+        </span>
+
       </li>
     <% end %>
   </ul>

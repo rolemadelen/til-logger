@@ -17,18 +17,26 @@
     </div>
   </div>
 
-
   <ul role="list" class="py-5 my-2">
     <% @closed.each do |post| %>
       <li class="pb-2 hover:bg-gray-50">
-        <div class="leading-4">
+        <div class="leading-4 flex">
           <p class="title text-sm">
           <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file-archive") %>
           </p>
-          <span class="date text-xs text-gray-300 pl-2">
-            <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
-          </span>
+          <div class="tags ml-3">
+            <% if post.tags %>
+              <% tags = post.tags.split(' ') %>
+              <% tags.each do |tag| %>
+                <span class="tag-default <%=tag%> px-2 py-0.5 text-xs rounded-full hover:border-transparent"><%=tag%></span>
+              <% end %>
+            <% end %>
+          </div>
+
         </div>
+        <span class="date text-xs text-gray-300 pl-2">
+          <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
+        </span>
       </li>
     <% end %>
   </ul>
