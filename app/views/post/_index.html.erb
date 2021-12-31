@@ -16,7 +16,7 @@
           <% if post.tags %>
             <% tags = post.tags.split(' ') %>
             <% tags.each do |tag| %>
-              <span class="<%=tag%> tag-default px-2 py-0.5 mr-1 text-xs rounded-full hover:border-transparent">
+              <span class="<%=tag%> tag-default pl-2 pr-1.5 py-0.5 mr-1 text-xs rounded-full hover:border-transparent">
                 <%= link_to(tag, "/index/tag/#{tag}", remote: true)%>
               </span>
             <% end %>
