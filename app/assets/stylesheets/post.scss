@@ -15,10 +15,6 @@ $javascript: #F8B73B;
 $rails: #d73a4a;
 $ruby: #d73a4a;
 
-.eu\:container {
-  padding: 0 20vw;
-}
-
 div.highlight {
   overflow: scroll;
 }
@@ -142,3 +138,160 @@ a {
 .javascript { background-color: $javascript; }
 .ruby { background-color: $ruby; color: white; }
 .rails { background-color: $rails; color: white; }
+
+
+//////////////////////////////////////////////
+// Media query
+////////////////////////////////////////////// 
+@media (min-width: 1280px) {
+  .eu\:container {
+    padding: 0 20vw;
+  }
+
+  .sns {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+}
+
+@media (min-width: 1024px) and (max-width: 1279px) {
+  .eu\:container {
+    padding: 0 14vw;
+  }
+
+  .sns {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .eu\:container {
+    padding: 0 5vw;
+  }
+
+  .sns {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 767px) {
+  .eu\:container {
+    padding: 0 2vw;
+    .navbar {
+      position: relative;
+      flex-direction: column !important;
+      margin-top: 5em;
+
+      & > div:first-child {
+        position: absolute;
+        left: 1.5em;
+        top: -2em;
+      }
+
+      & > div:last-child {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 1.6em;
+      }
+    }
+
+    ul[role="list"] {
+      padding: 1.25em 4vw;
+    }
+  }
+  .sns {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+}
+
+@media (min-width: 320px) and (max-width: 639px) {
+  .eu\:container {
+    padding: 0 5vw;
+    .navbar {
+      position: relative;
+      flex-direction: column !important;
+      margin-top: 5em;
+
+      & > div:first-child {
+        position: absolute;
+        left: 1.5em;
+        top: -2em;
+      }
+
+      & > div:last-child {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding: 0 1.6em;
+
+        // # open and # archive
+        & > div:first-child {
+          position: absolute;
+          top: 0.5em;
+          left: 2em;
+        }
+
+        // new issue div 
+        & > div:last-child {
+          button { 
+            border-radius: 0;
+            position: absolute;
+            top: -2.5em;
+            right: 2.5em;
+          }
+        }
+      }
+
+      .search-input {
+        position: absolute;
+        right: 2em;
+        input {
+          font-size: 12px;
+          height: 2em;
+          padding-left: 1.5rem;
+        }
+        i.search {
+          font-size: 14px;
+          top: 0.3rem;
+          left: 0.4rem;
+        }
+      }
+    }
+
+    ul[role="list"] {
+      margin-top: 2em;
+      padding: 1.25em 4vw;
+
+      li {
+        & > div {
+          flex-direction: column !important;
+          margin-bottom: 5px;
+
+          p {
+            font-size: 16px;
+          }
+
+          .tags {
+            margin: 5px 0 0 18px;
+          }
+        }
+        & > span.date {
+          display: none;
+        }
+      }
+    }
+  }
+  .sns {
+    position: fixed;
+    bottom: 5%;
+    right: 5%;
+  }
+}
