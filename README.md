@@ -21,3 +21,5 @@
   + [x] filter by tag
 - [x] Search by title (utilized AJAX and partial rendering)
 - [x] SNS link (github and twitter) 
+- [ ] Mobile UI 
+  + Used media query and positioned buttons here and there but realized it's much better using menu for mobile UI.

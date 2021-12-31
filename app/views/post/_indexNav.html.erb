@@ -1,4 +1,4 @@
-<div class="mt-10 flex justify-between items-center">
+<div class="navbar mt-10 flex justify-between items-center">
   <div class="flex">
     <div class="nav">
       <% if currentPage == 'home' %>
@@ -16,7 +16,7 @@
     </div>
   </div>
   <div class="flex mw-auto justify-end">
-    <div class="flex text-xs items-center text-gray-400 pr-5">
+    <div class="flex text-xs items-center text-gray-400">
       <div class="pr-3"> <%= @open.count %> open </div>
       <div class="pr-3"> <%= @closed.count %> archived </div>
     </div>
