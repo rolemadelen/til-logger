@@ -57,6 +57,12 @@ class PostController < ApplicationController
     end
   end
 
+  def destroy 
+    @post = Post.find_by(id: params[:id])
+    @post.destroy 
+    redirect_to("/")
+  end
+
   def edit 
     @post = Post.find_by(id: params[:id])
   end

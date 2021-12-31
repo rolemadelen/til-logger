@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/tag/:tag" => "post#tag"
   get "/search/:search" => "post#search"
   get "post/:id/archive" => "post#archive"
+  post "post/:id/destroy" => "post#destroy"
 
   post "post/:id/update" => "post#update"
   get "post/:id/edit" => "post#edit"
