@@ -1,7 +1,8 @@
 <%= javascript_pack_tag "search" %>
-<div class="eu:container sm:container sm:mx-auto">
-  <%= render partial: 'post/indexNav', :locals => {:currentPage => 'home'} %>
+<%= javascript_pack_tag "archive" %>
 
+<div class="eu:container mx-auto border-b-2 ">
+  <%= render partial: 'post/indexNav', :locals => {:currentPage => 'home'} %>
   <ul role="list" class="mainlist py-5 my-2">
     <%= render partial: 'post/index', :locals => {:posts => @open} %>
   </ul>

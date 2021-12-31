@@ -11,7 +11,6 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="50" height="50" alt="MySQL"/>
 </div>
 
-
 # Todo
 - [x] Create an issue 
 - [x] Archive an issue
@@ -23,3 +22,7 @@
 - [x] SNS link (github and twitter) 
 - [ ] Mobile UI 
   + Used media query and positioned buttons here and there but realized it's much better using menu for mobile UI.
+
+# Progress 
+- 2021-12-31 20:38 JST
+  + All UI modified to a card-deck styple

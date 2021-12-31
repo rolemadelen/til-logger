@@ -4,19 +4,12 @@
 
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
 $color-azure: rgba(0, 113, 197, 1.0);
 
-$algorithm: #E1A4D7;
-$c: #a10e49;
-$cpp: #a10e49;
-$documentation: #0075ca;
-$git: #F0D251;
-$javascript: #F8B73B;
-$rails: #d73a4a;
-$ruby: #d73a4a;
-
-div.highlight {
-  overflow: scroll;
+html {
+  font-size: 100%;
+  draggable: false;
 }
 
 hr {
@@ -63,24 +56,87 @@ th,td {
       font-weight: bold;
     }
   }
+}
 
-  a:hover {
-    color: $color-azure;
-    text-decoration: underline;
+///////////////////////////////////////////////
+// Container
+///////////////////////////////////////////////
+.eu\:container {
+  max-width: 874px;
+}
+
+ul[role="list"] {
+  .archive {
+    div:nth-child(-n + 4) { 
+      opacity: 0.4;
+      cursor: not-allowed;
+      .title, .tags {
+        pointer-events: none;
+      }
+    }
+  }
+
+  .card {
+    position: relative;
+    height: 7.5em;
+    padding: 1em;
+    border-radius: 5px;
+    box-shadow: 0px 1px 4px #e5e5e5;
+    margin-bottom: 1.5em;
+    transition: box-shadow .3s;
+
+    &-icon {
+      float: left;
+      background-repeat: no-repeat;
+      background-size: cover;
+      width: 50px;
+      height: 50px;
+      draggable: false;
+    }
+
+    &-data {
+      position: relative;
+      display: inline-block;
+      padding-left: 1.5em;
+
+      .title {
+        text-decoration: underline;
+        text-decoration-color: transparent;
+        transition: all 0.2s ease-out;
+      }
+      .title:hover {
+        text-decoration: underline;
+        text-decoration-color: black;
+        transition: all 0.2s ease-in;
+      }
+    }
+
+    &-desc {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      height: 2em;
+      width: 100%;
+    }
+  }
+
+  .card:hover {
+    box-shadow: 0px 1px 5px $color-azure;
+    transition: box-shadow .3s;
   }
 }
 
-a {
-  &.fa-file, &.fa-file-archive, &.fa-archive {
-    &::before {
-      margin-right: 5px;
-    }
-  }
+.hide {
+  display: none;
 }
 
 //////////////////////////////////////////////
 // Main contents 
 /////////////////////////////////////////////
+div.highlight {
+  overflow: scroll;
+}
+
 .content {
   font-family: "ui-sans-serif", "system-ui", "-apple-system", 
   "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue";
@@ -102,196 +158,208 @@ a {
   }
 }
 
-//////////////////////////////////////////
-// Index list 
-//////////////////////////////////////////
-.mainlist {
-  a:hover {
-    color: $color-azure;
-    text-decoration: underline;
-  }
-  .tags {
-    a:hover {
-      color: inherit;
-      text-decoration: none;
-    }
-  }
-}
-
-.tags {
-  font-family: "ui-sans-serif", "system-ui", "-apple-system", 
-  "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue";
-}
-
 ///////////////////////////////////////
 // tags color 
 ///////////////////////////////////////
+$algorithm: #17cdc5;
+$c: #659ad3;
+$cpp: #a10e49;
+$css : #1472b6;
+$documentation: #0075ca;
+$git: #ef5531;
+$javascript: #f0db4f;
+$rails: #d73a4a;
+$ruby: #d73a4a;
+
 .tag-default {background-color: #e5e5e5; } 
 .algorithm { background-color: $algorithm; }
-.c {background-color: $c; color: white; }
+.c {background-color: $c; color: black; }
 .c\+\+ {background-color: $cpp; color: white; }
 .cpp {background-color: $cpp; color: white; }
+.css {background-color: $css; color: white; }
 .doc { background-color: $documentation; }
 .documentation { background-color: $documentation; }
-.git { background-color: $git; color: black; }
+.git { background-color: $git; color: white; }
 .js { background-color: $javascript; }
 .javascript { background-color: $javascript; }
 .ruby { background-color: $ruby; color: white; }
 .rails { background-color: $rails; color: white; }
 
+///////////////////////////////////////
+// icons 
+///////////////////////////////////////
+.icon-git { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"); }
+.icon-github { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg"); }
+.icon-rails { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-plain.svg"); }
+.icon-ruby { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg")}
+.icon-js { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"); }
+.icon-javascript { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"); }
+.icon-cpp { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"); }
+.icon-c\+\+ { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cplusplus/cplusplus-original.svg"); }
+.icon-c { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg");}
+.icon-react { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg");}
+.icon-algorithm { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/thealgorithms/thealgorithms-original.svg");}
+.icon-linux { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg");}
+.icon-postgresql { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain.svg");}
+.icon-css { background-image: url("https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"); } 
+.icon-default { background-image: url(/images/default.png/); border-radius: 50%; }
+
+/*
 
 //////////////////////////////////////////////
 // Media query
 ////////////////////////////////////////////// 
 @media (min-width: 1280px) {
-  .eu\:container {
-    padding: 0 20vw;
-  }
+.eu\:container {
+padding: 0 20vw;
+}
 
-  .sns {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-  }
+.sns {
+position: fixed;
+bottom: 5%;
+right: 5%;
+}
 }
 
 @media (min-width: 1024px) and (max-width: 1279px) {
-  .eu\:container {
-    padding: 0 14vw;
-  }
+.eu\:container {
+padding: 0 14vw;
+}
 
-  .sns {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-  }
+.sns {
+position: fixed;
+bottom: 5%;
+right: 5%;
+}
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
-  .eu\:container {
-    padding: 0 5vw;
-  }
+.eu\:container {
+padding: 0 5vw;
+}
 
-  .sns {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-  }
+.sns {
+position: fixed;
+bottom: 5%;
+right: 5%;
+}
 }
 
 @media (min-width: 640px) and (max-width: 767px) {
-  .eu\:container {
-    padding: 0 2vw;
-    .navbar {
-      position: relative;
-      flex-direction: column !important;
-      margin-top: 5em;
+.eu\:container {
+padding: 0 2vw;
+.navbar {
+position: relative;
+flex-direction: column !important;
+margin-top: 5em;
 
-      & > div:first-child {
-        position: absolute;
-        left: 1.5em;
-        top: -2em;
-      }
-
-      & > div:last-child {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 1.6em;
-      }
-    }
-
-    ul[role="list"] {
-      padding: 1.25em 4vw;
-    }
-  }
-  .sns {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-  }
+& > div:first-child {
+position: absolute;
+left: 1.5em;
+top: -2em;
 }
 
+& > div:last-child {
+display: flex;
+justify-content: space-between;
+width: 100%;
+padding: 0 1.6em;
+}
+}
+
+ul[role="list"] {
+padding: 1.25em 4vw;
+}
+}
+.sns {
+position: fixed;
+bottom: 5%;
+right: 5%;
+}
+}
+
+// From here will be a mobile menu
 @media (min-width: 320px) and (max-width: 639px) {
-  .eu\:container {
-    padding: 0 5vw;
-    .navbar {
-      position: relative;
-      flex-direction: column !important;
-      margin-top: 5em;
+.eu\:container {
+padding: 0 5vw;
+.navbar {
+position: relative;
+flex-direction: column !important;
+margin-top: 5em;
 
-      & > div:first-child {
-        position: absolute;
-        left: 1.5em;
-        top: -2em;
-      }
-
-      & > div:last-child {
-        display: flex;
-        justify-content: space-between;
-        width: 100%;
-        padding: 0 1.6em;
-
-        // # open and # archive
-        & > div:first-child {
-          position: absolute;
-          top: 0.5em;
-          left: 2em;
-        }
-
-        // new issue div 
-        & > div:last-child {
-          button { 
-            border-radius: 0;
-            position: absolute;
-            top: -2.5em;
-            right: 2.5em;
-          }
-        }
-      }
-
-      .search-input {
-        position: absolute;
-        right: 2em;
-        input {
-          font-size: 12px;
-          height: 2em;
-          padding-left: 1.5rem;
-        }
-        i.search {
-          font-size: 14px;
-          top: 0.3rem;
-          left: 0.4rem;
-        }
-      }
-    }
-
-    ul[role="list"] {
-      margin-top: 2em;
-      padding: 1.25em 4vw;
-
-      li {
-        & > div {
-          flex-direction: column !important;
-          margin-bottom: 5px;
-
-          p {
-            font-size: 16px;
-          }
-
-          .tags {
-            margin: 5px 0 0 18px;
-          }
-        }
-        & > span.date {
-          display: none;
-        }
-      }
-    }
-  }
-  .sns {
-    position: fixed;
-    bottom: 5%;
-    right: 5%;
-  }
+& > div:first-child {
+position: absolute;
+left: 1.5em;
+top: -2em;
 }
+
+& > div:last-child {
+display: flex;
+justify-content: space-between;
+width: 100%;
+padding: 0 1.6em;
+
+// # open and # archive
+& > div:first-child {
+position: absolute;
+top: 0.5em;
+left: 2em;
+}
+
+// new issue div 
+& > div:last-child {
+button { 
+border-radius: 0;
+position: absolute;
+top: -2.5em;
+right: 2.5em;
+}
+}
+}
+
+.search-input {
+position: absolute;
+right: 2em;
+input {
+font-size: 12px;
+height: 2em;
+padding-left: 1.5rem;
+}
+i.search {
+font-size: 14px;
+top: 0.3rem;
+left: 0.4rem;
+}
+}
+}
+
+ul[role="list"] {
+margin-top: 2em;
+padding: 1.25em 4vw;
+
+li {
+& > div {
+flex-direction: column !important;
+margin-bottom: 5px;
+
+p {
+font-size: 16px;
+}
+
+.tags {
+margin: 5px 0 0 18px;
+}
+}
+& > span.date {
+display: none;
+}
+}
+}
+}
+.sns {
+position: fixed;
+bottom: 5%;
+right: 5%;
+}
+}
+*/

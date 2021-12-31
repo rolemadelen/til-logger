@@ -7,6 +7,7 @@ class PostController < ApplicationController
       @posts = Post.all.order(id: :desc).select{ |post| post.title.downcase.include? params[:search].downcase}
     elsif params[:tag]
       @posts = Post.all.order(id: :desc).select{ |post| (post.tags and post.tags.include? params[:tag])}
+      @posts = @posts.select { |post| post.archive != true }
     end
 
     respond_to do |format|
@@ -28,7 +29,10 @@ class PostController < ApplicationController
   end
 
   def tag 
+    @open = Post.all.order(id: :desc).select{|post| post.archive == false}
+    @closed = Post.all.order(id: :desc).select{|post| post.archive == true}
     @posts = Post.all.order(id: :desc).select{ |post| (post.tags and post.tags.include? params[:tag])}
+    @posts = @posts.select { |post| post.archive != true }
   end 
 
   def search 
@@ -52,6 +56,9 @@ class PostController < ApplicationController
 
   def create 
     @post = Post.new(title: params[:title], content: params[:content], tags: params[:tags], archive: false)
+    if @post.tags == nil
+      @post.tags = "default"
+    end 
     if @post.save
       redirect_to("/post/#{@post.id}")
     end
@@ -70,7 +77,11 @@ class PostController < ApplicationController
   def update 
     @post = Post.find_by(id: params[:id])
     @post.title = params[:title]
-    @post.tags = params[:tags]
+    if @post.tags == nil or @post.tags.empty?
+      @post.tags = "default"
+    else 
+      @post.tags = params[:tags]
+    end 
     @post.content = params[:content]
     if @post.save 
       redirect_to("/post/#{@post.id}")
