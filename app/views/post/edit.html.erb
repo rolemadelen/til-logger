@@ -1,4 +1,4 @@
-<div class="eu:container sm:container sm:mx-auto mt-10">
+<div class="eu:container mx-auto mt-10">
   <div class="flex justify-between items-center">
     <div class="nav">
       <% if @post.archive %>
@@ -18,7 +18,7 @@
     </span>
 
     <%= form_tag("/post/#{@post.id}/update") do %>
-      <%= render partial: 'post/issueForm', :locals => {:title => @post.title, :tags => @post.tags, :content => @post.content}%>
+      <%= render partial: 'post/issueForm', :locals => {:title => @post.title, :tags => @post.tags, :content => @post.content, :value => 'Update'}%>
     <% end %>
   </div>
 </div>

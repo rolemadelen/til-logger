@@ -2,30 +2,44 @@
   <div>Nothing found.</div>
 <% else %>
   <% posts.each do |post| %>
-    <li class="pb-2 hover:bg-gray-50">
-      <div class="leading-4 flex">
-        <p class="title text-sm">
+    <% if post.tags %>
+      <% tags = post.tags.split(' ') %>
+    <% else %>
+      <% tags = ["default"] %>
+    <%end%>
+    <% if post.archive %>
+      <li class="border card mx-auto archive ">
+      <% else %>
+        <li class="border card mx-auto">
+        <% end %>
+        <span class="text-xs absolute top-1 right-1 text-gray-300"><%= "##{post.id}" %></span>
+        <div class="card-icon icon-<%=tags[0]%>"></div>
+        <div class="card-data">
+          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "title text-lg font-medium") %>
+          <div class="tags">
+            <% if tags %>
+              <% tags.each do |tag| %>
+                <span class="<%=tag%> tag-default pl-2 pr-1.5 py-0.5 mr-1 text-xs rounded-full hover:border-transparent">
+                  <%= link_to(tag, "/index/tag/#{tag}", remote: true)%>
+                </span>
+              <% end %>
+            <% end %>
+          </div>
+        </div>
+        <div class="card-desc text-sm my-3">
+          <%= post.content %>
+        </div>
 
         <% if post.archive %>
-          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file-archive") %>
-        <% else %>
-          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "far fa-file") %>
+          <div class="archive-control hide">
+            <button class="absolute top-[36%] left-[40%] px-3 py-1 text-sm font-semibold rounded-full text-white bg-blue-500">
+              <%= link_to("Unarchive", "/post/#{post.id}/archive") %>
+            </button>
+            <button class="absolute top-[36%] left-[50%] px-3 py-1 ml-4 text-sm font-semibold rounded-full text-white bg-rose-500">
+              <%= link_to("Delete", "/post/#{post.id}/destroy", {method: :post}) %>
+            </button>
+          </div>
         <% end %>
-        </p>
-        <div class="tags ml-3">
-          <% if post.tags %>
-            <% tags = post.tags.split(' ') %>
-            <% tags.each do |tag| %>
-              <span class="<%=tag%> tag-default pl-2 pr-1.5 py-0.5 mr-1 text-xs rounded-full hover:border-transparent">
-                <%= link_to(tag, "/index/tag/#{tag}", remote: true)%>
-              </span>
-            <% end %>
-          <% end %>
-        </div>
-      </div>
-      <span class="date text-xs text-gray-300 pl-2">
-        <%= "##{post.id}  created on #{post.created_at.strftime("%b %0d")}" %>
-      </span>
-    </li>
-  <% end %>
-<% end %>
+        </li>
+      <% end %>
+    <% end %>

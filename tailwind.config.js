@@ -10,7 +10,7 @@ module.exports = {
   },
   content: [],
   presets: [],
-  darkMode: 'media', // or 'class'
+  darkMode: 'class', // or 'media'
   theme: {
     screens: {
       sm: '640px',
@@ -359,8 +359,6 @@ module.exports = {
     },
     fontFamily: {
       sans: [
-        'monospace',
-        'Inter var',
         'ui-sans-serif',
         'system-ui',
         '-apple-system',
