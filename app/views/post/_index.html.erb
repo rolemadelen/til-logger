@@ -1,5 +1,5 @@
 <% if posts.count == 0 %>
-  <div>Nothing found.</div>
+  <div class="dark:text-[#d9d9d9]">Nothing found.</div>
 <% else %>
   <% posts.each do |post| %>
     <% if post.tags %>
@@ -8,18 +8,18 @@
       <% tags = ["default"] %>
     <%end%>
     <% if post.archive %>
-      <li class="border card mx-auto archive ">
+      <li class="border dark:hover:border-transparent card shadow-[0px_0px_5px_#cdcdcd] dark:shadow-[0px_0px_5px_#5e5e5e] hover:shadow-[0px_0px_5px_#0071c5] dark:hover:shadow-[0px_0px_5px_#84cdff] mx-auto archive dark:bg-[#171b28] dark:text-[#dce0f3] dark:border-gray-500">
       <% else %>
-        <li class="border card mx-auto">
+        <li class="border dark:hover:border-transparent card shadow-[0px_0px_5px_#cdcdcd] dark:shadow-[0px_0px_5px_#5e5e5e]  hover:shadow-[0px_0px_5px_#0071c5] dark:hover:shadow-[0px_0px_5px_#84cdff] mx-auto dark:bg-[#171b28] dark:text-[#dce0f3] dark:border-gray-500">
         <% end %>
         <span class="text-xs absolute top-1 right-1 text-gray-300"><%= "##{post.id}" %></span>
         <div class="card-icon icon-<%=tags[0]%>"></div>
         <div class="card-data">
-          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "title text-lg font-medium") %>
+          <%= link_to((" #{post.title}"), "/post/#{post.id}", class: "title text-lg font-medium dark:hover:decoration-[#d9d9d9]") %>
           <div class="tags">
             <% if tags %>
               <% tags.each do |tag| %>
-                <span class="<%=tag%> tag-default pl-2 pr-1.5 py-0.5 mr-1 text-xs rounded-full hover:border-transparent">
+                <span class="<%=tag%> tag-default pl-2 pr-1.5 py-0.5 mr-1 text-xs rounded-full hover:border-transparent dark:text-[#121520]">
                   <%= link_to(tag, "/index/tag/#{tag}", remote: true)%>
                 </span>
               <% end %>

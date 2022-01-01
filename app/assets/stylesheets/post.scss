@@ -9,7 +9,31 @@ $color-azure: rgba(0, 113, 197, 1.0);
 
 html {
   font-size: 100%;
-  draggable: false;
+  .dark {
+    transition: all 0.5s;
+  }
+}
+
+.lightswitch {
+  position: absolute;
+  top: 0.3em;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  span {
+    cursor: pointer;
+    display: block;
+    background-color: black;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    transition: all 0.7s;
+    box-shadow: 0 0 1px 2px #fff;
+  }
+  span:hover {
+    transform: scale(1.2);
+  }
 }
 
 hr {
@@ -38,10 +62,9 @@ th,td {
   padding: 0.5rem 0.25rem 0.5rem 0.5rem;
   margin-right: 0.5rem;
 
-  border-width: 1px;
   letter-spacing: 0.1em;
 
-  font-size: 0.7rem;
+  font-size: 0.8rem;
 
   .nav-link {
     margin-right: 0.25rem;
@@ -62,7 +85,16 @@ th,td {
 // Container
 ///////////////////////////////////////////////
 .eu\:container {
-  max-width: 874px;
+  position: relative;
+  max-width: 900px;
+  padding: 0 2em;
+}
+
+.navbar {
+  position: relative;
+  a:hover {
+    text-decoration: underline;
+  }
 }
 
 ul[role="list"] {
@@ -78,10 +110,10 @@ ul[role="list"] {
 
   .card {
     position: relative;
+    min-width: 250px;
     height: 7.5em;
     padding: 1em;
     border-radius: 5px;
-    box-shadow: 0px 1px 4px #e5e5e5;
     margin-bottom: 1.5em;
     transition: box-shadow .3s;
 
@@ -91,13 +123,15 @@ ul[role="list"] {
       background-size: cover;
       width: 50px;
       height: 50px;
-      draggable: false;
     }
 
     &-data {
       position: relative;
       display: inline-block;
       padding-left: 1.5em;
+      display: flex; 
+      flex-direction: column;
+      flex-wrap: wrap;
 
       .title {
         text-decoration: underline;
@@ -108,6 +142,10 @@ ul[role="list"] {
         text-decoration: underline;
         text-decoration-color: black;
         transition: all 0.2s ease-in;
+      }
+
+      a:hover {
+        text-decoration: underline;
       }
     }
 
@@ -121,7 +159,6 @@ ul[role="list"] {
   }
 
   .card:hover {
-    box-shadow: 0px 1px 5px $color-azure;
     transition: box-shadow .3s;
   }
 }
@@ -133,16 +170,22 @@ ul[role="list"] {
 //////////////////////////////////////////////
 // Main contents 
 /////////////////////////////////////////////
-div.highlight {
-  overflow: scroll;
-}
-
 .content {
   font-family: "ui-sans-serif", "system-ui", "-apple-system", 
   "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue";
 
-  a {
-    color: $color-azure;
+  max-width: 900px;
+  min-width: 250px;
+
+  div.highlight {
+    overflow: scroll;
+  }
+
+
+  &-markdown {
+    a {
+      color: $color-azure;
+    }
   }
   a:hover {
     text-decoration: underline;
@@ -150,7 +193,7 @@ div.highlight {
 
   p {
     code {
-      background-color: #e5e5e5;
+      xbackground-color: #e5e5e5;
       padding: 2px;
       font-family: monospace;
       border-radius: 5px;
@@ -278,88 +321,24 @@ right: 5%;
 }
 }
 
+*/
 // From here will be a mobile menu
 @media (min-width: 320px) and (max-width: 639px) {
-.eu\:container {
-padding: 0 5vw;
-.navbar {
-position: relative;
-flex-direction: column !important;
-margin-top: 5em;
+  .card {
+    height: 9rem !important;
 
-& > div:first-child {
-position: absolute;
-left: 1.5em;
-top: -2em;
-}
+    &-icon {
+    }
 
-& > div:last-child {
-display: flex;
-justify-content: space-between;
-width: 100%;
-padding: 0 1.6em;
+    &-data {
+      .title {
+        font-size: 1em !important;
+      }
+      .title:hover {
+      }
+    }
 
-// # open and # archive
-& > div:first-child {
-position: absolute;
-top: 0.5em;
-left: 2em;
+    &-desc {
+    }
+  }
 }
-
-// new issue div 
-& > div:last-child {
-button { 
-border-radius: 0;
-position: absolute;
-top: -2.5em;
-right: 2.5em;
-}
-}
-}
-
-.search-input {
-position: absolute;
-right: 2em;
-input {
-font-size: 12px;
-height: 2em;
-padding-left: 1.5rem;
-}
-i.search {
-font-size: 14px;
-top: 0.3rem;
-left: 0.4rem;
-}
-}
-}
-
-ul[role="list"] {
-margin-top: 2em;
-padding: 1.25em 4vw;
-
-li {
-& > div {
-flex-direction: column !important;
-margin-bottom: 5px;
-
-p {
-font-size: 16px;
-}
-
-.tags {
-margin: 5px 0 0 18px;
-}
-}
-& > span.date {
-display: none;
-}
-}
-}
-}
-.sns {
-position: fixed;
-bottom: 5%;
-right: 5%;
-}
-}
-*/

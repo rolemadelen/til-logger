@@ -1,12 +1,12 @@
-<div class="eu:container mx-auto mt-10 border-b-2">
+<div class="eu:container mx-auto mt-10">
   <div class="flex justify-between items-center">
     <div class="nav">
       <% if @post.archive %>
-        <%= link_to("archive/", "/archive", class: 'nav-link fa fa-archive') %>
-        <%= link_to("#{@post.title}/", "/post/#{@post.id}", class: "nav-link active far fa-file-archive") %>
+        <%= link_to("archive/", "/archive", class: 'nav-link fa fa-archive dark:text-[#dce1f2]') %>
+        <%= link_to("#{@post.title}/", "/post/#{@post.id}", class: "nav-link active far fa-file-archive dark:text-[#66a3ff]") %>
       <%else %>
-        <%= link_to("home/", "/", class: 'nav-link far fa-folder-open') %>
-        <%= link_to("#{@post.title}/", "/post/#{@post.id}", class: "nav-link active far fa-file") %>
+        <%= link_to("home/", "/", class: 'nav-link far fa-folder-open dark:text-[#dce1f2]') %>
+        <%= link_to("#{@post.title}/", "/post/#{@post.id}", class: "nav-link active far fa-file dark:text-[#66a3ff]") %>
       <%end %>
     </div>
     <div class="flex justify-end">
@@ -20,13 +20,13 @@
     </div>
   </div>
 
-  <div class="py-6 my-2">
+  <div class="content py-6 my-2 dark:text-[#dce0f3] border-b-2 dark:border-[#373b4c]">
     <div class="tags mb-2">
       <% @tags.each do |tag| %>
-        <span class="tag-default <%=tag%> px-2 py-1 text-xs rounded-full hover:border-transparent"><%= link_to(tag, "/tag/#{tag}")%></span>
+        <span class="tag-default <%=tag%> px-2 py-1 text-xs rounded-full hover:border-transparent dark:text-[#121520]"><%= link_to(tag, "/tag/#{tag}")%></span>
       <% end %>
     </div>
-    <span class="text-xs text-gray-500 flex justify-start mb-4 border-b-2">
+    <span class="text-xs text-gray-500 flex justify-start mb-4 border-b-2 dark:text-[#b3b3b3] dark:border-[#373b4c]">
       <%if @post.created_at != @post.updated_at %>
         <%= "last updated: #{@post.updated_at.in_time_zone("Asia/Tokyo").strftime("%I:%M %p, %Y-%0m-%0d")}" %>
       <% else %>
@@ -34,7 +34,7 @@
       <% end %>
     </span>
 
-    <div class="content leading-6 p-2">
+    <div class="content-markdown leading-6 p-2">
       <%= markdown(@post.content) %>
     </div>
   </div>

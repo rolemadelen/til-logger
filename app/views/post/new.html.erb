@@ -1,9 +1,9 @@
 <div class="eu:container mx-auto">
-  <div class="text-2xl flex flex-col justify-center items-center mt-10">
+  <div class="text-2xl flex flex-col justify-center items-center mt-10 content dark:text-[#dce1f2]">
     <span>
       New Issue
     </span>
-    <span class="text-sm text-gray-500">
+    <span class="text-sm text-gray-500 dark:text-[#b3b3b3]">
       <% require 'Date'%>
       <%= Date.today.in_time_zone("Asia/Tokyo").strftime("%Y-%0m-%0d %I:%M %p %Z") %>
     </span>
@@ -11,12 +11,12 @@
 
   <div class="flex justify-between items-center">
     <div class="nav">
-      <%= link_to("home /", "/", class: 'nav-link far fa-folder-open') %>
-      <%= link_to("...new", "/post/new", class: 'nav-link active') %>
+      <%= link_to("home /", "/", class: 'nav-link far fa-folder-open dark:text-[#dce1f2]') %>
+      <%= link_to("...new", "/post/new", class: 'nav-link active dark:text-[#66a3ff]') %>
     </div>
   </div>
 
-  <div class="py-6 my-2">
+  <div class="content py-6 my-2">
     <%= form_tag("/post/create") do %>
       <%= render partial: "post/issueForm", :locals => {:title => "", :tags => "", :content => "", :value => "Create"} %>
     <% end %>

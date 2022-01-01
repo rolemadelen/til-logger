@@ -1,4 +1,5 @@
 module.exports = {
+  important: true,
   mode: 'jit',
   purge: {
     enabled: ["production", "staging"].includes(process.env.NODE_ENV),
