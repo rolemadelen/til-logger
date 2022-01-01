@@ -23,11 +23,12 @@
   + [x] filter by tag
 - [x] Search by title (utilized AJAX and partial rendering)
 - [x] SNS link (github and twitter) 
-- [ ] ~Mobile UI~ postponed
+- [ ] ~~Mobile UI~~ postponed.
 - [x] Dark mode
 
 # Progress 
-- 2022-01-01 -- complete 
+- **Completed**
+- 2022-01-01 -- [tweet](https://twitter.com/euisblue/status/1477240640845279235?s=20) 
   + Dark mode added 
   + used localStorage to cache the state of 'darkmode'
 - 2021-12-31 JST [tweet](https://twitter.com/euisblue/status/1476920357202194433?s=20)
@@ -43,5 +44,5 @@
 - 2021-12-27 [tweet](https://twitter.com/euisblue/status/1475471820002578435?s=20)
   + mostly UI - worked on page navigation
 - 2021-12-26 [tweet](https://twitter.com/euisblue/status/1475116117240987648?s=20)
-  + START
   + CRUD added - 'archiving' instead of a deleting
+- **Begin**
