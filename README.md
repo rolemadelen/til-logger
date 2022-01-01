@@ -11,6 +11,9 @@
 <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" width="50" height="50" alt="MySQL"/>
 </div>
 
+# Demo 
+![Project demo](./project-demo.gif)
+
 # Todo
 - [x] Create an issue 
 - [x] Archive an issue

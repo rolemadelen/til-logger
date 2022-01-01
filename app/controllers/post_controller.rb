@@ -77,7 +77,7 @@ class PostController < ApplicationController
   def update 
     @post = Post.find_by(id: params[:id])
     @post.title = params[:title]
-    if @post.tags == nil or @post.tags.empty?
+    if @post.tags == nil or @post.tags.strip.empty?
       @post.tags = "default"
     else 
       @post.tags = params[:tags]
