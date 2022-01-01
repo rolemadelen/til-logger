@@ -1,5 +1,5 @@
 document.addEventListener("turbolinks:load", function() {
-  $(".search-input").on('change', (e) => {
+  $(".search-input").on('keydown', (e) => {
     const param = (e.target.value).trimStart().trimEnd();
     const URL = "/index/" + encodeURIComponent(param);
 
